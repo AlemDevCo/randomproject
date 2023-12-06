@@ -26,7 +26,7 @@ cube.castShadow = true; // Cube casts shadows
 scene.add(cube);
 
 // Set up the lighting
-const light = new THREE.PointLight(0xffffff, 1, 100);
+const light = new THREE.PointLight(0xffffff, 10, 100);
 light.position.set(2, 2, 2);
 scene.add(light);
 
