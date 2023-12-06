@@ -30,22 +30,17 @@ const light = new THREE.PointLight(0xffffff, 1, 100);
 light.position.set(2, 2, 2);
 scene.add(light);
 
-// Set up the background
-const textureLoader = new THREE.TextureLoader();
-const backgroundTexture = textureLoader.load('path/to/your/background.jpg'); // Replace with the path to your background image
-scene.background = backgroundTexture;
+// Set up the white background
+const planeGeometry = new THREE.PlaneGeometry(200, 200);
+const planeMaterial = new THREE.ShadowMaterial({ opacity: 0.5 });
+const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+plane.rotation.x = - Math.PI / 2;
+plane.position.y = -2; // Adjust the position as needed
+plane.receiveShadow = true; // Plane receives shadows
+scene.add(plane);
 
 // Add shadows
 renderer.shadowMap.enabled = true;
-
-// Ground plane to receive shadows
-const groundGeometry = new THREE.PlaneGeometry(200, 200);
-const groundMaterial = new THREE.ShadowMaterial({ opacity: 0.5 });
-const ground = new THREE.Mesh(groundGeometry, groundMaterial);
-ground.rotation.x = - Math.PI / 2;
-ground.position.y = -2; // Adjust the position as needed
-ground.receiveShadow = true; // Ground receives shadows
-scene.add(ground);
 
 // Set up animation
 const animate = () => {
