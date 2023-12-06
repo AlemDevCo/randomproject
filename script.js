@@ -17,7 +17,7 @@ const geometry = new THREE.BoxGeometry();
 const material = new THREE.MeshPhysicalMaterial({
     color: 0x00ff00, // Cube color
     transparent: true,
-    opacity: 0.7, // Cube opacity
+    opacity: 1, // Cube opacity
     metalness: 0.5, // Reflectivity
     roughness: 0.5, // Smoothness
 });
